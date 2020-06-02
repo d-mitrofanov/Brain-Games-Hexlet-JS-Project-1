@@ -1,0 +1,23 @@
+{
+  "name": "brain-games-lvl1",
+  "version": "0.0.1",
+  "description": "",
+  "main": "bin/brain-games.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d-mitrofanov/frontend-project-lvl1.git"
+  },
+  "author": "Dmitriy Mitrofanov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/d-mitrofanov/frontend-project-lvl1/issues"
+  },
+  "homepage": "https://github.com/d-mitrofanov/frontend-project-lvl1#readme",
+  "types": "module",
+  "bin": {
+    "brain-games": "bin/brain-games.js"
+  }
+}
