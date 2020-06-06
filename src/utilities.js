@@ -18,6 +18,7 @@ const evaluator = (string) => {
   const num1 = Number(splitString[0]);
   const operator = splitString[1];
   const num2 = Number(splitString[2]);
+
   switch (operator) {
     case '+':
       return num1 + num2;
@@ -41,16 +42,32 @@ const hideElementInArray = (array, index) => {
 const hiddenElArrayGenerator = () => {
   let num = 0;
   const magnifier = getRandomNum();
+
   const arrayToHide = Array.apply(0, Array(10)).map(() => {
     num += magnifier;
     return num;
   });
+
   const index = getRandomNum(0, arrayToHide.length - 1);
   const answer = arrayToHide[index];
   const hiddenElArray = hideElementInArray(arrayToHide, index);
   return [hiddenElArray, answer];
 };
 
+const isPrime = (number) => {
+  if (number < 2) {
+    return false;
+  }
+
+  for (let i = 2; i <= number / 2; i += 1) {
+    if (number % i === 0) {
+      return 'no';
+    }
+  }
+  return 'yes';
+};
+
 export {
-  isEven, getRandomNum, getRandomExpression, evaluator, getGcd, numOfRounds, hiddenElArrayGenerator,
+  isEven, getRandomNum, getRandomExpression,
+  evaluator, getGcd, numOfRounds, hiddenElArrayGenerator, isPrime,
 };
