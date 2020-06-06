@@ -1,9 +1,9 @@
 import readlineSync from 'readline-sync';
-import { getRandomExpression, evaluator } from '../utilities.js';
+import { getRandomExpression, evaluator, numOfRounds } from '../utilities.js';
 
 const brainCalc = (user) => {
   console.log('What is the result of the expression?');
-  for (let i = 0; i < 3;) {
+  for (let i = 0; i < numOfRounds;) {
     const expression = getRandomExpression();
     const answer = evaluator(expression);
     console.log(`Question: ${expression}`);

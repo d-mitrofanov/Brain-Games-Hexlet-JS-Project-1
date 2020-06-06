@@ -1,3 +1,5 @@
+const numOfRounds = 3;
+
 const isEven = (num) => (num % 2 === 0 ? 'yes' : 'no');
 
 const getRandomNum = () => {
@@ -12,7 +14,6 @@ const getRandomExpression = () => {
   const operators = ['+', '-', '*'];
   const operator = operators[Math.floor(Math.random() * operators.length)];
   const expression = `${num1} ${operator} ${num2}`;
-  // console.log(expression);
   return expression;
 };
 
@@ -33,6 +34,8 @@ const evaluator = (string) => {
   }
 };
 
+const getGcd = (a, b) => ((a % b) ? getGcd(b, a % b) : Math.abs(b));
+
 export {
-  isEven, getRandomNum, getRandomExpression, evaluator,
+  isEven, getRandomNum, getRandomExpression, evaluator, getGcd, numOfRounds,
 };
