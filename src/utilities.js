@@ -2,11 +2,7 @@ const numOfRounds = 3;
 
 const isEven = (num) => (num % 2 === 0 ? 'yes' : 'no');
 
-const getRandomNum = () => {
-  const min = Math.ceil(2);
-  const max = Math.floor(99);
-  return Math.floor(Math.random() * (max - min)) + min;
-};
+const getRandomNum = (min = 2, max = 99) => Math.floor(Math.random() * (max - min)) + min;
 
 const getRandomExpression = () => {
   const num1 = getRandomNum();
@@ -36,6 +32,25 @@ const evaluator = (string) => {
 
 const getGcd = (a, b) => ((a % b) ? getGcd(b, a % b) : Math.abs(b));
 
+const hideElementInArray = (array, index) => {
+  const arrayToReturn = array;
+  arrayToReturn[index] = '..';
+  return array.join(' ');
+};
+
+const hiddenElArrayGenerator = () => {
+  let num = 0;
+  const magnifier = getRandomNum();
+  const arrayToHide = Array.apply(0, Array(10)).map(() => {
+    num += magnifier;
+    return num;
+  });
+  const index = getRandomNum(0, arrayToHide.length - 1);
+  const answer = arrayToHide[index];
+  const hiddenElArray = hideElementInArray(arrayToHide, index);
+  return [hiddenElArray, answer];
+};
+
 export {
-  isEven, getRandomNum, getRandomExpression, evaluator, getGcd, numOfRounds,
+  isEven, getRandomNum, getRandomExpression, evaluator, getGcd, numOfRounds, hiddenElArrayGenerator,
 };
