@@ -2,7 +2,7 @@ const numOfRounds = 3;
 
 const isEven = (num) => (num % 2 === 0 ? 'yes' : 'no');
 
-const getRandomNum = (min = 2, max = 99) => Math.floor(Math.random() * (max - min)) + min;
+const getRandomNum = (min = 1, max = 99) => Math.floor(Math.random() * (max - min)) + min;
 
 const getRandomExpression = () => {
   const num1 = getRandomNum();
@@ -42,7 +42,6 @@ const hideElementInArray = (array, index) => {
 const hiddenElArrayGenerator = () => {
   let num = 0;
   const magnifier = getRandomNum();
-
   const arrayToHide = Array.apply(0, Array(10)).map(() => {
     num += magnifier;
     return num;
@@ -67,7 +66,9 @@ const isPrime = (number) => {
   return 'yes';
 };
 
+const convertResult = (result, userAnswer) => (typeof (result) === 'number' ? Number(userAnswer) : userAnswer);
+
 export {
   isEven, getRandomNum, getRandomExpression,
-  evaluator, getGcd, numOfRounds, hiddenElArrayGenerator, isPrime,
+  evaluator, getGcd, numOfRounds, hiddenElArrayGenerator, isPrime, convertResult,
 };
