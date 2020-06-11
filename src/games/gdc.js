@@ -9,7 +9,7 @@ const getQuestionAndAnswer = () => {
   const num1 = getRandomNum();
   const num2 = getRandomNum();
   const question = `${num1} ${num2}`;
-  const answer = getGcd(num1, num2);
+  const answer = `${getGcd(num1, num2)}`;
   return [question, answer];
 };
 

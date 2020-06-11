@@ -1,30 +1,25 @@
 import getRandomNum from '../getRandomNum.js';
 import startGame from '../index.js';
 
-const hideElementInArray = (array, index) => {
-  const arrayToReturn = array;
-  arrayToReturn[index] = '..';
-  return array.join(' ');
+const generateArray = (start, diff, length, ind) => {
+  const filledArray = Array.apply(0, Array(length)).map(() => (start));
+  const arrayWithProgression = filledArray.map((el, index) => {
+    const result = el + diff * index;
+    return index === ind ? '..' : result;
+  }, 1);
+  return arrayWithProgression.join(' ');
 };
 
-const hiddenElArrayGenerator = () => {
-  let num = 0;
-  const magnifier = getRandomNum();
-  const arrayToHide = Array.apply(0, Array(10)).map(() => {
-    num += magnifier;
-    return num;
-  });
-
-  const index = getRandomNum(0, arrayToHide.length - 1);
-  const answer = arrayToHide[index];
-  const hiddenElArray = hideElementInArray(arrayToHide, index);
-  return [hiddenElArray, answer];
-};
+const lengthOfProgression = 10;
 
 const description = 'What number is missing in the progression?';
 
 const getQuestionAndAnswer = () => {
-  const [question, answer] = hiddenElArrayGenerator();
+  const start = getRandomNum();
+  const diff = getRandomNum(1);
+  const indexOfHiddenValue = getRandomNum(0, lengthOfProgression - 1);
+  const question = generateArray(start, diff, lengthOfProgression, indexOfHiddenValue);
+  const answer = `${start + diff * indexOfHiddenValue}`;
   return [question, answer];
 };
 
