@@ -20,9 +20,9 @@ const getQuestionAndAnswer = () => {
   const num1 = getRandomNum();
   const num2 = getRandomNum();
   const operators = ['+', '-', '*'];
-  const operator = operators[getRandomNum(0, 2)];
+  const operator = operators[getRandomNum(0, operators.length - 1)];
   const question = `${num1} ${operator} ${num2}`;
-  const answer = `${calculate(num1, num2, operator)}`;
+  const answer = toString(calculate(num1, num2, operator));
   return [question, answer];
 };
 
